@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment - Hair by Piyaa</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="booking-body">
+
+    <div class="booking-container">
+        <!-- Booking Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress-step active"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+            <div class="progress-step"></div>
+        </div>
+
+        <!-- This is a container for all the steps. JS would show one at a time. -->
+        <div class="booking-steps-wrapper">
+
+            <!-- === STEP 1: CHOOSE SERVICE === -->
+            <section id="step-1" class="booking-step active">
+                <h1 class="step-title">Choose a Service</h1>
+
+                <!-- Special option to use the Style Lab -->
+                <div class="option-card style-lab-option">
+                    <img src="assets/icons/style-lab.svg" alt="Style Lab Icon" class="icon">
+                    <div>
+                        <h3>Use a Saved Style</h3>
+                        <p>Import a look from your Virtual Style Lab creations.</p>
+                    </div>
+                </div>
+
+                <!-- Service Category Cards -->
+                <div class="option-card">
+                    <h3>Colour</h3>
+                    <p>Balayage, Highlights, Gloss & Toners</p>
+                </div>
+
+                <div class="option-card selected"> <!-- "selected" class shows user choice -->
+                    <h3>Cut & Finish</h3>
+                    <p>Precision haircut with a professional blowout.</p>
+                    <img src="assets/icons/checkmark.svg" alt="Selected" class="checkmark">
+                </div>
+
+                <div class="option-card">
+                    <h3>Styling</h3>
+                    <p>Event styling, blowouts, and treatments.</p>
+                </div>
+
+                <div class="step-navigation">
+                    <button class="primary-cta-button">Next</button>
+                </div>
+            </section>
+
+            <!-- === STEP 2: CHOOSE STYLIST === -->
+            <section id="step-2" class="booking-step">
+                <h1 class="step-title">Choose Your Stylist</h1>
+
+                <div class="option-card selected">
+                    <img src="assets/images/piyaa-avatar.jpg" alt="Piyaa" class="avatar">
+                    <div>
+                        <h3>Piyaa</h3>
+                        <p>Lived-in Colour Specialist</p>
+                    </div>
+                    <img src="assets/icons/checkmark.svg" alt="Selected" class="checkmark">
+                </div>
+
+                <div class="step-navigation">
+                    <button class="back-button">Back</button>
+                    <button class="primary-cta-button">Next</button>
+                </div>
+            </section>
+
+            <!-- === STEP 3: CHOOSE DATE & TIME === -->
+            <section id="step-3" class="booking-step">
+                <h1 class="step-title">Select Date & Time</h1>
+
+                <!-- A simplified calendar representation -->
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button class="calendar-nav">&lt;</button>
+                        <span>October 2025</span>
+                        <button class="calendar-nav">&gt;</button>
+                    </div>
+                    <div class="calendar-grid">
+                        <!-- Days of the week -->
+                        <div class="day-name">S</div>
+                        <div class="day-name">M</div>
+                        <div class="day-name">T</div>
+                        <div class="day-name">W</div>
+                        <div class="day-name">T</div>
+                        <div class="day-name">F</div>
+                        <div class="day-name">S</div>
+                        <!-- Dates (add 'disabled' for non-available days) -->
+                        <div class="day disabled">28</div>
+                        <div class="day disabled">29</div>
+                        <div class="day disabled">30</div>
+                        <div class="day">1</div>
+                        <div class="day">2</div>
+                        <div class="day">3</div>
+                        <div class="day">4</div>
+                        <div class="day">5</div>
+                        <div class="day disabled">6</div>
+                        <div class="day">7</div>
+                        <div class="day">8</div>
+                        <div class="day selected">9</div>
+                        <div class="day">10</div>
+                        <div class="day">11</div>
+                        <!-- ... etc ... -->
+                    </div>
+                </div>
+
+                <div class="time-slots">
+                    <button class="time-slot">09:00 AM</button>
+                    <button class="time-slot selected">10:30 AM</button>
+                    <button class="time-slot">01:00 PM</button>
+                    <button class="time-slot">02:30 PM</button>
+                    <button class="time-slot disabled">04:00 PM</button>
+                </div>
+
+                <div class="step-navigation">
+                    <button class="back-button">Back</button>
+                    <button class="primary-cta-button">Next</button>
+                </div>
+            </section>
+
+            <!-- === STEP 4: CONFIRMATION & DETAILS === -->
+            <section id="step-4" class="booking-step">
+                <h1 class="step-title">Confirm Your Appointment</h1>
+
+                <div class="confirmation-summary">
+                    <div class="summary-item"><span>Service:</span><span>Cut & Finish</span></div>
+                    <div class="summary-item"><span>Stylist:</span><span>Piyaa</span></div>
+                    <div class="summary-item"><span>Date:</span><span>Thursday, Oct 9, 2025</span></div>
+                    <div class="summary-item"><span>Time:</span><span>10:30 AM</span></div>
+                    <div class="summary-item total"><span>Total:</span><span>£65.00</span></div>
+                </div>
+
+                <form class="contact-form">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                </form>
+
+                <div class="step-navigation">
+                    <button class="back-button">Back</button>
+                    <button class="primary-cta-button">Confirm & Pay</button>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="js/booking.js"></script> <!-- ADD THIS LINE -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,780 @@
+/* --- Global Styles & Resets --- */
+:root {
+    --apple-blue: #0071e3;
+    --primary-text: #1d1d1f;
+    --secondary-text: #6e6e73;
+    --background-grey: linear-gradient(to bottom, #eaeaea, #000000);
+    --background-light: #e2e2e2;
+    --background-white: #ffffff;
+    --border-color: #d2d2d7;
+    --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--background-white);
+    /* Changed default for interior pages */
+    color: var(--primary-text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+}
+
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Navigation Header --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 20px 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Style for solid header on interior pages */
+.header-solid {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.header-solid .logo,
+.header-solid .main-nav ul li a {
+    color: var(--primary-text);
+    /* Dark text for light background */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    opacity: 1;
+}
+
+.nav-cta-button {
+    background-color: rgba(0, 113, 227, 0.9);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 980px;
+    /* Pill shape */
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-cta-button:hover {
+    transform: scale(1.05);
+    background-color: var(--apple-blue);
+}
+
+/* --- Hero Section (Homepage Only) --- */
+.hero-container {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    background-color: var(--background-grey);
+    /* Fallback color */
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+.hero-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    max-width: 700px;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.primary-cta-button {
+    background-color: var(--apple-blue);
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 980px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.primary-cta-button:hover {
+    transform: scale(1.05);
+    background-color: #0077ed;
+}
+
+/* --- General Content Styles --- */
+main {
+    padding-top: 80px;
+    /* To offset the fixed header */
+}
+
+.content-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.page-header {
+    background-color: var(--background-light);
+    padding: 60px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.page-header h1 {
+    font-size: 3rem;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: var(--secondary-text);
+    max-width: 600px;
+    margin: 10px auto 0;
+}
+
+.secondary-link {
+    color: var(--apple-blue);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+.secondary-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Featured Looks Section (Homepage) --- */
+.featured-looks {
+    background-color: var(--background-white);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 24px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Philosophy Section (Homepage) --- */
+.philosophy {
+    background-color: var(--background-light);
+}
+
+.philosophy p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--secondary-text);
+    font-size: 1.1rem;
+}
+
+/* --- Lookbook Page --- */
+.filter-buttons {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.filter-buttons button {
+    background: none;
+    border: 1px solid var(--border-color);
+    border-radius: 980px;
+    padding: 10px 20px;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-buttons button:hover {
+    background-color: #e9e9eb;
+}
+
+.filter-buttons button.active {
+    background-color: var(--primary-text);
+    color: #fff;
+    border-color: var(--primary-text);
+}
+
+.lookbook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.lookbook-item img {
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+}
+
+/* --- Services Page --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    text-align: left;
+}
+
+.service-item {
+    background-color: var(--background-light);
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.service-item .price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary-text);
+    margin-bottom: 15px;
+}
+
+.service-item .description {
+    font-size: 0.95rem;
+    color: var(--secondary-text);
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.service-cta {
+    display: inline-block;
+    background-color: var(--apple-blue);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 980px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.service-cta:hover {
+    transform: scale(1.05);
+}
+
+/* --- About Page --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+    align-items: center;
+    text-align: left;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 24px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--secondary-text);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.testimonials {
+    background-color: var(--background-light);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 24px;
+    text-align: left;
+}
+
+.testimonial-card p {
+    font-style: italic;
+    color: var(--secondary-text);
+    margin-bottom: 15px;
+}
+
+.testimonial-card span {
+    font-weight: 600;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #e9e9eb;
+    padding: 40px 0;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-legal a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.footer-legal a:hover {
+    text-decoration: underline;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .main-nav ul {
+        display: none;
+        /* Simplification for mobile, full menu needs JS */
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .content-section h2 {
+        font-size: 2rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-text {
+        margin-top: 30px;
+    }
+
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---======================================--- */
+/* ---         BOOKING PAGE STYLES        --- */
+/* ---======================================--- */
+
+.booking-body {
+    background-color: var(--background-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.booking-container {
+    width: 100%;
+    max-width: 420px;
+    /* Optimal for mobile view */
+    background-color: var(--background-white);
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin: 20px;
+}
+
+/* --- Progress Bar --- */
+.progress-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.progress-step {
+    flex-grow: 1;
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    transition: background-color 0.4s ease;
+}
+
+.progress-step.active {
+    background-color: var(--apple-blue);
+}
+
+/* --- Step Content --- */
+.booking-step {
+    display: none;
+    /* JS will change this to 'block' for the active step */
+}
+
+.booking-step.active {
+    display: block;
+}
+
+.step-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* --- Option Cards (Services, Stylist) --- */
+.option-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 18px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.option-card:hover {
+    border-color: #b9b9be;
+}
+
+.option-card.selected {
+    border-color: var(--apple-blue);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.2);
+}
+
+.option-card h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.option-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+.option-card .icon {
+    width: 32px;
+    height: 32px;
+}
+
+.option-card .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.option-card .checkmark {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--apple-blue);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.style-lab-option {
+    background-color: #f0f6ff;
+    /* A light blue accent */
+}
+
+
+/* --- Calendar & Time Slots --- */
+.calendar-container {
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding: 15px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.calendar-nav {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--secondary-text);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.day-name {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: var(--secondary-text);
+}
+
+.day {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.day:hover {
+    background-color: var(--background-light);
+}
+
+.day.disabled {
+    color: var(--border-color);
+    cursor: not-allowed;
+}
+
+.day.selected {
+    background-color: var(--primary-text);
+    color: #fff;
+}
+
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.time-slot {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: none;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.time-slot:hover {
+    background-color: #f0f0f0;
+}
+
+.time-slot.selected {
+    background-color: var(--primary-text);
+    color: #fff;
+    border-color: var(--primary-text);
+}
+
+.time-slot.disabled {
+    background-color: var(--background-light);
+    color: var(--border-color);
+    cursor: not-allowed;
+}
+
+
+/* --- Confirmation & Form --- */
+.confirmation-summary {
+    background-color: var(--background-light);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.summary-item span:first-child {
+    color: var(--secondary-text);
+}
+
+.summary-item span:last-child {
+    font-weight: 600;
+}
+
+.summary-item.total {
+    font-size: 1.2rem;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 12px;
+}
+
+.contact-form input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.contact-form input::placeholder {
+    color: var(--secondary-text);
+}
+
+/* --- Step Navigation --- */
+.step-navigation {
+    display: flex;
+    justify-content: flex-end;
+    /* Aligns button(s) to the right */
+    gap: 10px;
+    margin-top: 30px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.step-navigation .primary-cta-button {
+    width: 100%;
+    /* Make Next button full-width on mobile */
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    padding: 14px 28px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: var(--apple-blue);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 14px 20px;
+}
+
+.step-navigation.has-back-button {
+    justify-content: space-between;
+}
+
+.step-navigation.has-back-button .primary-cta-button {
+    width: auto;
+}
